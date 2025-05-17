@@ -7,7 +7,7 @@ return {
           name = 'llama3',
           schema = {
             model = {
-              default = 'qwen2.5-coder:3b',
+              default = 'gemma3:4b',
             },
           },
         })
