@@ -72,6 +72,12 @@ return {
         }
       end, { desc = '[F]ind [/] in Open Files' })
 
+      vim.keymap.set('n', '<leader>fa', function()
+        builtin.find_files {
+          no_ignore = true,
+        }
+      end, { desc = '[F]ind [A]ll files' })
+
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>fn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
