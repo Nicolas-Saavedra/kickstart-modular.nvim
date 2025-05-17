@@ -27,7 +27,7 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
     git = { enabled = true },
-    lazygit = { enabled = true },
+    lazygit = { enabled = true, configure = false },
     gitbrowse = { enabled = true },
   },
 }
