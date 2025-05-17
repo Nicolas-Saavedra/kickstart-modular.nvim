@@ -17,6 +17,13 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = 'header' },
+        { section = 'startup' },
+      },
+    },
     bigfile = { enabled = true },
     indent = { enabled = true },
     picker = { enabled = true },
