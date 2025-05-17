@@ -24,13 +24,16 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {
-        notification = {
-          window = {
-            winblend = 0,
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
           },
         },
-      } },
+      },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -214,18 +217,61 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        clangd = {},
+        gopls = {},
+        rust_analyzer = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                mccabe = { enabled = false },
+                pylsp_mypy = { enabled = false },
+                pylsp_black = { enabled = false },
+                pylsp_isort = { enabled = false },
+              },
+            },
+          },
+        },
+        ruff = {
+          -- Notes on code actions: https://github.com/astral-sh/ruff-lsp/issues/119#issuecomment-1595628355
+          -- Get isort like behavior: https://github.com/astral-sh/ruff/issues/8926#issuecomment-1834048218
+          commands = {
+            RuffAutofix = {
+              function()
+                vim.lsp.buf.execute_command {
+                  command = 'ruff.applyAutofix',
+                  arguments = {
+                    { uri = vim.uri_from_bufnr(0) },
+                  },
+                }
+              end,
+              description = 'Ruff: Fix all auto-fixable problems',
+            },
+            RuffOrganizeImports = {
+              function()
+                vim.lsp.buf.execute_command {
+                  command = 'ruff.applyOrganizeImports',
+                  arguments = {
+                    { uri = vim.uri_from_bufnr(0) },
+                  },
+                }
+              end,
+              description = 'Ruff: Format imports',
+            },
+          },
+        },
+        jsonls = {},
+        sqlls = {},
+        terraformls = {},
+        yamlls = {},
+        bashls = {},
+        dockerls = {},
+        docker_compose_language_service = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
 
         lua_ls = {
           -- cmd = { ... },
@@ -244,15 +290,6 @@ return {
       }
 
       -- Ensure the servers and tools above are installed
-      --
-      -- To check the current status of installed tools and/or manually install
-      -- other tools, you can run
-      --    :Mason
-      --
-      -- You can press `g?` for help in this menu.
-      --
-      -- `mason` had to be setup earlier: to configure its options see the
-      -- `dependencies` table for `nvim-lspconfig` above.
       --
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
