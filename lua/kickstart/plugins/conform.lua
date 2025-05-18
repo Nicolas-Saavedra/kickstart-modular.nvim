@@ -31,6 +31,13 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        sh = { 'shfmt' },
+        json = { 'prettier' },
+        yaml = { 'prettier' },
+        markdown = { 'prettier' },
+        html = { 'prettier' },
+        python = { 'ruff_format' },
+        make = { 'checkmake' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
