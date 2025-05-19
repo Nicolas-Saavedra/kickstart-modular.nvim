@@ -9,7 +9,6 @@ return {
         markdown = { 'markdownlint' },
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
-        python = { 'ruff' },
         make = { 'checkmake' },
       }
 

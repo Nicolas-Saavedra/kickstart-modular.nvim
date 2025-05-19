@@ -40,7 +40,7 @@ return {
         javascriptreact = { 'prettierd', 'rustywind' },
         typescript = { 'prettierd' },
         typescriptreact = { 'prettierd', 'rustywind' },
-        python = { 'ruff_organize_imports', 'ruff_format' },
+        python = { 'isort', 'black' },
         nix = { 'alejandra' },
         make = { 'checkmake' },
         -- Conform can also run multiple formatters sequentially
