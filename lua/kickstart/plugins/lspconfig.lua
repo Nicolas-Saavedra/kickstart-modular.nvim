@@ -93,6 +93,11 @@ return {
           --  the definition of its *type*, not where it was *defined*.
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+          -- Show error in current line
+          map('<leader>e', function()
+            vim.diagnostic.open_float { border = 'rounded' }
+          end, 'Show [E]rrors in line')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
