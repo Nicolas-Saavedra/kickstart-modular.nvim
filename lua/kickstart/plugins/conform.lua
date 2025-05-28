@@ -34,7 +34,7 @@ return {
         sh = { 'shfmt' },
         json = { 'prettierd' },
         yaml = { 'prettierd' },
-        markdown = { 'prettierd' },
+        markdown = {},
         html = { 'prettierd', 'rustywind' },
         javascript = { 'prettierd' },
         javascriptreact = { 'prettierd', 'rustywind' },
