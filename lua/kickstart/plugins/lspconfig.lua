@@ -237,6 +237,7 @@ return {
         'shfmt',
         'prettierd',
         'eslint_d',
+        'emmet_language_server',
         'alejandra',
         'isort',
         'black',
