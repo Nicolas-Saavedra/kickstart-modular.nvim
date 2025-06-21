@@ -238,6 +238,7 @@ return {
         'prettierd',
         'eslint_d',
         'emmet_language_server',
+        'tailwindcss',
         'alejandra',
         'isort',
         'black',
