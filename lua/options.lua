@@ -69,4 +69,8 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+vim.o.expandtab = true
+vim.o.shiftwidth = 2 -- Indent by 2 spaces
+vim.o.softtabstop = 2 -- Tab feels like 2 spaces
+
 -- vim: ts=2 sts=2 sw=2 et
